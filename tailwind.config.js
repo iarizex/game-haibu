@@ -20,6 +20,7 @@ export default {
     },
     fontFamily: {
       sans: ['Exo 2', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
