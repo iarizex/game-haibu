@@ -3,10 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}", ],
   theme: {
     screens: {
-      sm: '480px',
+      xs: '480px',
+      sm: '640px',
       md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
     colors: {
       'acento2': '#F8CD2A',
@@ -20,8 +22,18 @@ export default {
     },
     fontFamily: {
       sans: ['Exo 2', 'sans-serif'],
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+    },
     extend: {},
   },
   plugins: [],
 }
-
