@@ -1,30 +1,39 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <VideoBackground videoSrc="./assets/Logo_GH_Animation.mp4" />
+    <div class="content">
+      <h1>¡Bienvenido a mi sitio web!</h1>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script>
+import VideoBackground from "./components/VideoBackground.vue";
+
+export default {
+  name: "App",
+  components: {
+    VideoBackground,
+  },
+};
+</script>
+
+<style>
+#app {
+  background-color: #f81414; /* Cambia este color según tus necesidades */
+  color: white; /* Ajusta el color del texto para contraste */
+  font-family: Arial, sans-serif;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0;
+  overflow: hidden; /* Evita scroll si los elementos se desbordan */
+  position: relative;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.content {
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+  z-index: 1; /* Asegura que el texto esté sobre el video */
 }
 </style>
+
