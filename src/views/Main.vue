@@ -34,16 +34,14 @@ export default {
 	      const response = await axios.request(options);
 	      console.log(response.data);
         this.data = response.data;
+        //console.log(this.data);
       } catch (error) {
 	      console.error(error);
       }
-      console.log('Hello world');
-
     },
-    
-    mounted() {
+  },
+  mounted() {
     this.getGames();
-    },
-  }
+  },
 };
 </script>
