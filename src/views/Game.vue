@@ -5,14 +5,6 @@
       <h3>{{ gameData.title }}</h3>
       <h3>{{ gameData.developer }}</h3>
       <h3>{{ gameData.release_date }}</h3>
-  
-      <!-- <div v-for="person in filmData.characters" :key="person"> -->
-        <!-- <RouterLink :to="`person/${getCharId(person)}`">{{ person }}</RouterLink> -->
-        <!-- <router-link :to="{ name: 'character', params: { charid: getCharId(person) } }">{{ person }}</router-link> -->
-      <!-- </div> -->
-  
-      <!-- <RouterView /> -->
-  
     </div>
   </template>
   
