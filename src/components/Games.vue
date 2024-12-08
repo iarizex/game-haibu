@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secundario text-texto p-4 rounded-lg shadow-lg flex flex-col md:flex-row gap-4">
+  <div class="bg-secundario text-texto p-4 rounded-lg shadow-lg flex flex-col md:flex-row gap-4  shadow-sombras2">
     <div class="flex-1">
       <h2 class="font-bold text-lg mb-2">{{ game.title }}</h2>
       <p class="text-sm">{{ game.description }}</p>
