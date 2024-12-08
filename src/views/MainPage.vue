@@ -1,12 +1,24 @@
-<script setup>
-import NavBar from '../components/NavBar.vue'
-</script>
-
 <template>
-    <div id="main-page" class="container mx-auto">
+    <div class="bg-fondo text-texto min-h-screen flex flex-col">
         <NavBar />
-        <!--<Genres />
+        <GameGenres />
         <GameCards />
-        <Footer />-->
+        <FooterPage />
     </div>
 </template>
+
+<script>
+import NavBar from '../components/NavBar.vue'
+import FooterPage from '../components/Footer.vue'
+import GameCards from '../components/GameCards.vue'
+import GameGenres from '../components/Genres.vue'
+
+export default{
+    components: {
+        NavBar,
+        FooterPage,
+        GameCards,
+        GameGenres
+    }
+}
+</script>

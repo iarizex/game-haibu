@@ -14,17 +14,17 @@ module.exports = {
         '2xl': '1536px',
       },
       colors: {
-        'acento2': '#F8CD2A',
-        'acento1': '#84FF01',
-        'principal': '#234142',
-        'sombras1': '#010D14',
-        'secundario': '#459857',
-        'sombras2': '#585E54',
-        'fondo': '#010409',
-        'texto': '#d3dce6',
+        'acento1': '#84FF01', // verde claro
+        'acento2': '#F8CD2A', // amarillo
+        'principal': '#234142', // azul oscuro
+        'sombras1': '#010D14', // gris oscuro azulado
+        'secundario': '#459857', // verde oscuro
+        'sombras2': '#585E54', // gris claro
+        'fondo': '#010409', // gris casi negro
+        'texto': '#d3dce6', // blanco
       },
       fontFamily: {
-        sans: ['Exo 2', 'sans-serif'],
+        sans: ['"Exo 2"', ...defaultTheme.fontFamily.sans],
       },
       container: {
         center: true,
