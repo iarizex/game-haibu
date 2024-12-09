@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <h1>Main page</h1>
-  </div>
 
-  <div class="flex items-center">
+  <!-- Modal Component -->
+  <LandingModal :show="showModal" @close="handleModalClose"/>
+
+  <div v-if="!showModal">
+    <h1>Main page</h1>
+
+    <button @click="openModal">Abrir Modal</button>
+
+    <div class="flex items-center">
     <button @click="getGames('mmorpg')" class="border-2 p-1 m-4">mmorpg</button>
     <button @click="getGames('first-person')" class="border-2 p-1 m-4">first-person</button>
     <button @click="getGames('third-Person')" class="border-2 p-1 m-4">third-person</button>
@@ -19,22 +24,34 @@
       </li>
     </ul>
   </div>
+</div>
 </template>
 
 <script>
 import { RouterLink } from "vue-router";
 import axios from 'axios';
+import LandingModal from "../components/Landing.vue";
 
 export default {
 name: "Main",
+components: { LandingModal },
 data() {
   return {
+    showModal: true,
     data: null,
     //genre: '',
     //platform: '',
   };
 },
 methods: {
+
+  openModal() {
+      this.showModal = true;
+    },
+    handleModalClose() {
+      this.showModal = false;
+    },
+
   async getGames(genre) {
     const options = {
       method: 'GET',
@@ -68,6 +85,12 @@ methods: {
 mounted() {
   this.getGames();
   //console.log('Mounted:', genre);
+
+  // Verificar si ya se mostró el modal en la sesión actual
+  if (!sessionStorage.getItem("landingModalShown")) {
+    this.showModal = true;
+    sessionStorage.setItem("landingModalShown", "true");
+  }
 },
 };
 </script>
