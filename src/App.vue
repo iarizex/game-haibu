@@ -147,4 +147,9 @@ export default {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: white;
 }
+
+div {
+font-family: 'Exo 2', sans-serif;
+}
+
 </style>
