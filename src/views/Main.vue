@@ -91,6 +91,6 @@ mounted() {
     this.showModal = true;
     sessionStorage.setItem("landingModalShown", "true");
   }
-  },
+},
 };
 </script>
