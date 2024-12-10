@@ -9,7 +9,7 @@
       <p class="text-sm">{{ game.short_description }}</p>
       </RouterLink>
     </div>
-    <div class="flex-shrink-0 md:w-48 md:h-auto">
+    <div class="flex-shrink-1 md:w-48 h-auto">
       <RouterLink :to="{
         name: 'game',
         params: { id: game.id }

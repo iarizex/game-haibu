@@ -3,28 +3,7 @@
       <h1>Main page</h1>
     </div>
 
-    <div class="flex items-center justify-center">
-      <button @click="getGames('mmorpg')" class="border-2 p-1 m-4">mmorpg</button>
-      <button @click="getGames('first-person')" class="border-2 p-1 m-4">first-person</button>
-      <button @click="getGames('third-Person')" class="border-2 p-1 m-4">third-person</button>
-      <button @click="getGames('shooter')" class="border-2 p-1 m-4">shooter</button>
-      <button @click="getGames('sports')" class="border-2 p-1 m-4">sports</button>
-      <button @click="getGames('action-rpg')" class="border-2 p-1 m-4">action-rpg</button>
-    </div>
-
-    <div v-if="this.data">
-      <ul class="grid grid-cols-4 gap-3 justify-items-center">
-        <li v-for="game in this.data" class="border-2 p-1 w-[300px] text-center">
-            <RouterLink :to="{
-              name: 'game',
-              params: { id: game.id }
-            }">
-            <img :src="game.thumbnail" />
-          </RouterLink>
-          {{ game.title }}
-        </li>
-      </ul>
-    </div>
+    
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-fondo text-texto min-h-screen flex flex-col">
+    <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
         <NavBar />
         <GameGenres @get-games="getGames" />
         <GameCards :data="data" />
