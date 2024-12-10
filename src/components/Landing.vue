@@ -9,7 +9,7 @@
 
     <!-- Texto para el "hero" -->
     <div class="hero-container">
-    <div class="hero-text" :class="{ zoomed: isZoomed }">
+    <div class="hero-text glass-card" :class="{ zoomed: isZoomed }">
     in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!
     </div>
     </div>
@@ -112,7 +112,10 @@ export default {
 
   /* Fondo negro */
 .background {
+    overflow: hidden;
     position: absolute;
+    top:0;
+    right: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
@@ -124,8 +127,8 @@ export default {
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 1000px;
-    height: 600px;
+    width: 1100px;
+    height: 700px;
     overflow: hidden;
 }
 
@@ -138,12 +141,11 @@ export default {
   /* Video en la parte inferior izquierda */
 .bottom-left-video {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 0px;
+    left: 0px;
     width: 400px;
     height: 300px;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
 .media {
@@ -155,53 +157,63 @@ export default {
   /* Botones */
 .buttons {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 40px;
+    left: 60px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     z-index: 10;
 }
 
 .button {
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    color: white;
-    padding: 10px 20px;
+    color: transparent;
+    padding: 35px 100px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: white;
-}
 
 .hero-container {
-    display: flex;
+    position: absolute;
+    top: 200px;
+    left: 50px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 50vw;
+    height: 200px;
+    width: 40vw;
     font-family: 'Exo 2', sans-serif;
     overflow: hidden;
+    z-index: 1;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #F8CD2A; /* Sombra */
+    padding: 50px;
+    text-align: center;
+    color: white;
 }
 
 .hero-text {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     opacity: 0;
     z-index: 2;
     color: white;
     transform: scale(0.1);
     transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+    text-shadow:
+    1px 1px 2px black,
+    0 0 0.5em yellow,
+    0 0 0.2em green;
 }
 
 .hero-text.zoomed {
     opacity: 1;
     transform: scale(1);
+}
+
+.glass-card {
+
 }
 
 </style>
