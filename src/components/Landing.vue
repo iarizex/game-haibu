@@ -4,7 +4,7 @@
     <div class="modal-content">
 
     <!-- Background negro -->
-    <div class="background"></div>
+<div class="background">
 
 
     <!-- Texto para el "hero" -->
@@ -53,6 +53,7 @@
     </div>
     </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -96,7 +97,7 @@ export default {
         },
         closeModal() {
             this.$emit('close');
-        }, 
+        },
     },
     }
 
@@ -104,35 +105,9 @@ export default {
 
 <style scoped>
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-}
-
   /* Contenedor principal */
 .container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
-    background-color: black;
 }
 
   /* Fondo negro */
@@ -140,19 +115,18 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     z-index: -1;
 }
 
   /* Video en la parte superior derecha */
 .top-right-video {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-    height: 200px;
+    top: 0px;
+    right: 0px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
 .top-right-media {
@@ -210,15 +184,18 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 50vw;
     font-family: 'Exo 2', sans-serif;
     overflow: hidden;
 }
 
 .hero-text {
-    font-size: 3rem;
+    font-size: 20px;
     text-align: center;
     opacity: 0;
-    transform: scale(0.5);
+    z-index: 2;
+    color: white;
+    transform: scale(0.1);
     transition: transform 1.5s ease-out, opacity 1.5s ease-out;
 }
 
