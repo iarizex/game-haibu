@@ -1,28 +1,42 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}", ],
+const defaultTheme = require("tailwindcss/defaultTheme");
+
+/** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
+module.exports = {
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+    extend: {
+      screens: {
+        xs: '480px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+      },
+      colors: {
+        'acento1': '#84FF01', // verde claro
+        'acento2': '#F8CD2A', // amarillo
+        'principal': '#234142', // azul oscuro
+        'sombras1': '#010D14', // gris oscuro azulado
+        'secundario': '#459857', // verde oscuro
+        'sombras2': '#585E54', // gris claro
+        'fondo': '#010409', // gris casi negro
+        'texto': '#d3dce6', // blanco
+      },
+      fontFamily: {
+        sans: ['"Exo 2"', ...defaultTheme.fontFamily.sans],
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
+      },
     },
-    colors: {
-      'acento2': '#F8CD2A',
-      'acento1': '#84FF01',
-      'principal': '#234142',
-      'sombras1': '#010D14',
-      'secundario': '#459857',
-      'sombras2': '#585E54',
-      'fondo': '#010409',
-      'texto': '#d3dce6',
-    },
-    fontFamily: {
-      sans: ['Exo 2', 'sans-serif'],
-    },
-    extend: {},
   },
   plugins: [],
-}
-
+};
