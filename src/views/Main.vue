@@ -1,7 +1,12 @@
 <template>
-    <div>
+
+  <!-- Modal Component -->
+  <LandingModal :show="showModal" @close="handleModalClose"/>
+
+  <div v-if="!showModal">
       <h1>Main page</h1>
-    </div>
+
+    <button @click="openModal">Abrir Modal</button>
 
     <div class="flex items-center">
       <button @click="getGames('mmorpg')" class="border-2 p-1 m-4">mmorpg</button>
@@ -19,6 +24,7 @@
         </li>
       </ul>
     </div>
+</div>
 </template>
 
 <script>
