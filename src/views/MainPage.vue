@@ -2,7 +2,7 @@
     <div class="bg-fondo text-texto min-h-screen flex flex-col">
         <NavBar />
         <GameGenres @get-games="getGames" />
-        <GameCards />
+        <GameCards :data="data" />
         <FooterPage />
     </div>
 </template>
@@ -13,7 +13,6 @@ import FooterPage from '../components/Footer.vue'
 import GameCards from '../components/GameCards.vue'
 import GameGenres from '../components/Genres.vue'
 
-import { RouterLink } from "vue-router";
 import axios from 'axios';
 
 export default{

@@ -19,7 +19,6 @@
               name: 'game',
               params: { id: game.id }
             }">
-          <!-- <RouterLink :to="`game/game.id`"> -->
             <img :src="game.thumbnail" />
           </RouterLink>
           {{ game.title }}
