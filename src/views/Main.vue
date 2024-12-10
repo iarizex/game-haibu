@@ -35,7 +35,7 @@ import LandingModal from "../components/Landing.vue";
 
 export default {
 name: "Main",
-components: { LandingModal, credits },
+components: { LandingModal },
 data() {
   return {
     showModal: true,
