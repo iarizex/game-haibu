@@ -9,7 +9,7 @@
 
     <!-- Texto para el "hero" -->
     <div class="hero-container">
-    <div class="hero-text glass-card" :class="{ zoomed: isZoomed }">
+    <div class="hero-text" :class="{ zoomed: isZoomed }">
     in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!
     </div>
     </div>
@@ -95,7 +95,9 @@ export default {
         handleLeave() {
             this.hoveringButton = false;
         },
+
         closeModal() {
+            this.hoveringButton = false;
             this.$emit('close');
         },
     },
@@ -127,8 +129,8 @@ export default {
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 1100px;
-    height: 700px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -177,43 +179,57 @@ export default {
 
 .hero-container {
     position: absolute;
-    top: 200px;
-    left: 50px;
-    justify-content: center;
-    align-items: center;
+    top: 230px;
+    left: 100px;
     height: 200px;
     width: 40vw;
     font-family: 'Exo 2', sans-serif;
     overflow: hidden;
     z-index: 1;
     border-radius: 15px;
-    box-shadow: 5px 5px 15px #F8CD2A; /* Sombra */
-    padding: 50px;
+    background-color: rgba(20, 20, 20, 0.5);
+    box-shadow:
+    5px 5px 25px #84FF01,
+    0px 0px 15px #F8CD2A;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     color: white;
+    animation: glow 1.5s infinite alternate;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes glow {
+from {
+    box-shadow:
+    5px 5px 25px #84FF01,
+    0px 0px 15px #F8CD2A;
+}
+to {
+    box-shadow:
+    1px 1px 1px #84FF01,
+    5px 5px 25px #F8CD2A;
+}
 }
 
 .hero-text {
     font-size: 22px;
     text-align: center;
+    justify-content: center;
     opacity: 0;
     z-index: 2;
     color: white;
     transform: scale(0.1);
     transition: transform 1.5s ease-out, opacity 1.5s ease-out;
     text-shadow:
-    1px 1px 2px black,
-    0 0 0.5em yellow,
-    0 0 0.2em green;
+    1px 1px 1px white,
+    0 0 0.5em green;
 }
 
 .hero-text.zoomed {
     opacity: 1;
     transform: scale(1);
-}
-
-.glass-card {
-
 }
 
 </style>
