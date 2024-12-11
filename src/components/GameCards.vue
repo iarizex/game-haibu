@@ -6,7 +6,7 @@
       [&::-webkit-scrollbar-thumb]:bg-acento1
       [&::-webkit-scrollbar-thumb]:rounded-full
       [&::-webkit-scrollbar-track]:rounded-full">
-        <Games v-for="game in data" :game="game" />
+      <Games v-for="(game, index) in data" :key="game.id" :game="game" :index="index" />
       </div>
     </main>
   </template>
