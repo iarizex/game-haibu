@@ -1,5 +1,5 @@
 <template>
-  <div id="Genres" class="bg-principal p-4">
+  <div id="Genres" class="bg-principal p-4 genres">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto border-acento1 border rounded-lg shadow-md shadow-sombras1">
       <div class="text-acento1 text-center font-bold mb-2 w-full p-4 text-lg md:text-xl lg:text-2xl">
         GÉNEROS
