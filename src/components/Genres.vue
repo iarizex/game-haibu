@@ -6,7 +6,7 @@
       </div>
       <div class="flex flex-wrap justify-center gap-4 p-4 w-full">
         <button 
-          v-for="genre in ['mmorpg', 'first-person', 'third-person', 'shooter', 'sports', 'action-rpg']"
+          v-for="genre in ['mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
           @click="$emit('get-games', genre)"
           class="border-2 p-2 rounded-md text-sm md:text-base lg:text-lg hover:bg-acento1 hover:text-white transition-all">
