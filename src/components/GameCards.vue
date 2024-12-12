@@ -12,6 +12,7 @@
   </template>
 
 <script>
+  import { onMounted, onUnmounted } from 'vue';
   import Games from './Games.vue'
   import { RouterLink } from "vue-router";
 
@@ -26,18 +27,26 @@
     components: {
       Games,
     },
+    setup() {
+      function adjustGamesLayout() {
+        const navbar = document.querySelector('nav');
+        const genres = document.querySelector('.genres');
+        const footer = document.querySelector('footer');
+        const games = document.querySelector('.gamecards');
+        if (navbar && genres && footer && games) {
+          const availableHeight = window.innerHeight - (navbar.offsetHeight + genres.offsetHeight + footer.offsetHeight + 30);
+          games.style.height = `${availableHeight}px`;
+        }
+      }
+
+      onMounted(() => {
+        adjustGamesLayout();
+        window.addEventListener('resize', adjustGamesLayout);
+      });
+
+      onUnmounted(() => {
+        window.removeEventListener('resize', adjustGamesLayout);
+      });
+    },
   };
-
-  function adjustGamesLayout() {
-      const navbar = document.querySelector('nav');
-      const genres = document.querySelector('.genres');
-      const footer = document.querySelector('footer');
-      const games = document.querySelector('.gamecards');
-      const availableHeight = window.innerHeight - (navbar.offsetHeight + genres.offsetHeight + footer.offsetHeight + 30); // Subtract heights of all elements
-      games.style.height = `${availableHeight}px`; // Set grid height dynamically
-  }
-
-  // Adjust on load and resize
-  window.addEventListener('load', adjustGamesLayout);
-  window.addEventListener('resize', adjustGamesLayout);
 </script>
