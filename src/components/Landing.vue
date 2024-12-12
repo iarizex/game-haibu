@@ -70,10 +70,10 @@ export default {
     return {
             isZoomed: false,
             hoveringButton: false,
-            staticImage: "public/Start_Credits_Buttons_Image.png", // Imagen estática para la parte inferior izquierda
-            video1: "public/Start_Button.mp4", // Primer video para el hover del botón
-            video2: "public/Credits_Button.mp4", // Segundo video para el hover del botón
-            topRightVideo: "public/Logo_GH_Animation.mp4", // Video en loop para la parte superior derecha
+            staticImage: "/Start_Credits_Buttons_Image.png", // Imagen estática para la parte inferior izquierda
+            video1: "/Start_Button.mp4", // Primer video para el hover del botón
+            video2: "/Credits_Button.mp4", // Segundo video para el hover del botón
+            topRightVideo: "/Logo_GH_Animation.mp4", // Video en loop para la parte superior derecha
             currentVideo: "", // Almacena el video actual para el hover
         };
     },
