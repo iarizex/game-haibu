@@ -1,4 +1,4 @@
-import LandingPage from "./views/LandingPage.vue";
+
 import MainPage from "./views/MainPage.vue";
 import GamePage from "./views/GamePage.vue";
 import NotFound from "./views/NotFound.vue";
