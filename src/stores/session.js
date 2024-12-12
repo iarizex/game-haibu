@@ -9,10 +9,18 @@ export const useSessionStore = defineStore('session',{
         switchLandingModalShown() {
             this.landingModalShown = !this.landingModalShown
         },
+
+        setFilter(genre) {
+            this.filter = genre
+        },
     },
     getters:{
         getLandingModalShown() {
             return this.landingModalShown
+        },
+
+        getFilter() {
+            return this.filter
         }
     }
 })

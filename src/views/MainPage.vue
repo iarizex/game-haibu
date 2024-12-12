@@ -46,6 +46,9 @@ export default{
   methods: {
 
     async getGames(genre) {
+
+      this.sessionStore.setFilter(genre);
+
       const options = {
         method: 'GET',
         url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
@@ -55,24 +58,23 @@ export default{
         }
       };
 
-      if (genre) {
+      if (this.sessionStore.getFilter) {
         options.url = 'https://free-to-play-games-database.p.rapidapi.com/api/filter';
         const params = {tag: genre};
         options.params = params;
-      }
+      };
 
       try {
 	    const response = await axios.request(options);
 	    console.log(response.data);
         this.data = response.data;
-        console.log('getGames: ', genre);
       } catch (error) {
 	      console.error(error);
-      }
+      };
     },
   },
   mounted() {
-    this.getGames();
+    this.getGames(this.sessionStore.getFilter);
   },
 
 };
