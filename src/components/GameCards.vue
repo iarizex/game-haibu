@@ -39,6 +39,5 @@
 
   // Adjust on load and resize
   window.addEventListener('load', adjustGamesLayout);
-  //window.addEventListener("load", e => setTimeout(adjustCalendarLayout, 3000) );
   window.addEventListener('resize', adjustGamesLayout);
 </script>
