@@ -28,7 +28,7 @@ import LandingModal from "../components/Landing.vue";
 import axios from 'axios';
 
 export default{
-  name: "Main",
+  name: "MainPage",
   components: {
     NavBar,
     FooterPage,
@@ -51,7 +51,7 @@ export default{
       this.showModal = false;
     },
 
-    async getGames(evt, genre) {
+    async getGames(genre) {
       const options = {
         method: 'GET',
         url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',

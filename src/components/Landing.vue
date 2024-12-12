@@ -121,7 +121,6 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
-    z-index: -1;
 }
 
   /* Video en la parte superior derecha */
