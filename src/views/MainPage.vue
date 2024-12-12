@@ -1,9 +1,9 @@
 <template>
 
     <!-- Modal Component -->
-    <LandingModal :show="showModal" @close="handleModalClose" />
+    <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" />
 
-    <div v-if="!showModal">
+    <div v-if="sessionStore.getLandingModalShown">
         <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
             <NavBar />
             <GameGenres @get-games="getGames" />
@@ -22,6 +22,9 @@ import LandingModal from "../components/Landing.vue";
 
 import axios from 'axios';
 
+import {useSessionStore} from "../stores/session"
+import {mapStores} from "pinia"
+
 export default{
   name: "MainPage",
   components: {
@@ -36,6 +39,10 @@ export default{
       data: null,
       showModal: true,
     };
+  },
+  computed: {
+    ...mapStores(useSessionStore)  //un objeto sessionStore donde tiene todo lo del store
+        
   },
   methods: {
 
@@ -74,12 +81,6 @@ export default{
   },
   mounted() {
     this.getGames();
-
-    // Verificar si ya se mostró el modal en la sesión actual
-    if (!sessionStorage.getItem("landingModalShown")) {
-        this.showModal = true;
-        sessionStorage.setItem("landingModalShown", "true");
-    }
   },
 
 };
