@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
+}
+
+.animate-border-0 { animation-delay: 0s; }
+.animate-border-1 { animation-delay: 0.5s; }
+.animate-border-2 { animation-delay: 1s; }
+.animate-border-3 { animation-delay: 1.5s; }
+.animate-border-4 { animation-delay: 2s; }

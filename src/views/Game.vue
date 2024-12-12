@@ -1,5 +1,5 @@
 <template>
-    <!-- <h2>Game {{ $route.params.id }}</h2> -->
+    <h2>Game {{ $route.params.id }}</h2>
     <div v-if="gameData">
       <img :src="gameData.thumbnail" />
       <h3>{{ gameData.title }}</h3>

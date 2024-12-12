@@ -7,6 +7,7 @@ export default defineConfig({
     vue()
   ],
   server: {
+    open: true,
     watch: {
       usePolling: true,
       interval: 1000
