@@ -36,6 +36,14 @@ module.exports = {
           '2xl': '6rem',
         },
       },
+      animation: {
+        'border': 'border 4s linear infinite',
+      },
+      keyframes: {
+          'border': {
+              to: { '--border-angle': '360deg' },
+          }
+      }     
     },
   },
   plugins: [],
