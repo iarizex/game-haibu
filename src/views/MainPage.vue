@@ -37,7 +37,6 @@ export default{
   data() {
     return {
       data: null,
-      showModal: true,
     };
   },
   computed: {
@@ -45,13 +44,6 @@ export default{
         
   },
   methods: {
-
-    openModal() {
-      this.showModal = true;
-    },
-    handleModalClose() {
-      this.showModal = false;
-    },
 
     async getGames(genre) {
       const options = {
