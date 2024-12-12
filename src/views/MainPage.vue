@@ -1,9 +1,20 @@
 <template>
-    <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
-        <NavBar />
-        <GameGenres @get-games="getGames" />
-        <GameCards :data="data" />
-        <FooterPage />
+
+    <!-- Modal Component -->
+    <LandingModal :show="showModal" @close="handleModalClose" />
+
+    <div v-if="!showModal">
+        <h1>Main page</h1>
+
+        <button @click="openModal">Abrir Modal</button>
+        <button @click="openModal">Abrir Modal Creditos</button>
+
+        <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
+            <NavBar />
+            <GameGenres @get-games="getGames" />
+            <GameCards :data="data" />
+            <FooterPage />
+        </div>
     </div>
 </template>
 
@@ -12,6 +23,7 @@ import NavBar from '../components/NavBar.vue'
 import FooterPage from '../components/Footer.vue'
 import GameCards from '../components/GameCards.vue'
 import GameGenres from '../components/Genres.vue'
+import LandingModal from "../components/Landing.vue";
 
 import axios from 'axios';
 
@@ -21,14 +33,24 @@ export default{
     NavBar,
     FooterPage,
     GameCards,
-    GameGenres
+    GameGenres,
+    LandingModal,
   },
   data() {
     return {
       data: null,
+      showModal: true,
     };
   },
   methods: {
+
+    openModal() {
+      this.showModal = true;
+    },
+    handleModalClose() {
+      this.showModal = false;
+    },
+
     async getGames(evt, genre) {
       const options = {
         method: 'GET',
@@ -57,6 +79,12 @@ export default{
   },
   mounted() {
     this.getGames();
+
+    // Verificar si ya se mostró el modal en la sesión actual
+    if (!sessionStorage.getItem("landingModalShown")) {
+        this.showModal = true;
+        sessionStorage.setItem("landingModalShown", "true");
+    }
   },
 
 };
