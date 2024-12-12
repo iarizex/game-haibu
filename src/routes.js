@@ -2,8 +2,6 @@
 import MainPage from "./views/MainPage.vue";
 import GamePage from "./views/GamePage.vue";
 import NotFound from "./views/NotFound.vue";
-import Main from "./views/Main.vue";
-import Game from "./views/Game.vue";
 
 import { getTransitionRawChildren } from "vue";
 
