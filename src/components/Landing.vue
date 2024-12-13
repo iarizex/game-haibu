@@ -100,6 +100,10 @@ export default {
             this.hoveringButton = false;
             this.$emit('close');
         },
+
+        openCredits() {
+            this.$emit
+        }
     },
     }
 

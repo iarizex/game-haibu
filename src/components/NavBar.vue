@@ -42,7 +42,7 @@
                     <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 md:text-acento2" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Credits</a>
+                    <button class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700" @click="$emit('open')">Credits</button>
                 </li>
                 </ul>
             </div>

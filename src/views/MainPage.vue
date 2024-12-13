@@ -2,10 +2,11 @@
 
     <!-- Modal Component -->
     <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" />
+    <Credits :show="creditsShow" @close="togglecredits" />
 
     <div v-if="sessionStore.getLandingModalShown">
         <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
-            <NavBar />
+            <NavBar @open="togglecredits" />
             <GameGenres @get-games="getGames" />
             <GameCards :data="data" />
             <FooterPage />
@@ -18,12 +19,13 @@ import NavBar from '../components/NavBar.vue'
 import FooterPage from '../components/Footer.vue'
 import GameCards from '../components/GameCards.vue'
 import GameGenres from '../components/Genres.vue'
-import LandingModal from "../components/Landing.vue";
+import LandingModal from "../components/Landing.vue"
+import Credits from "../components/Credits.vue";
 
 import axios from 'axios';
 
-import {useSessionStore} from "../stores/session"
-import {mapStores} from "pinia"
+import {useSessionStore} from "../stores/session";
+import {mapStores} from "pinia";
 
 export default{
   name: "MainPage",
@@ -33,10 +35,12 @@ export default{
     GameCards,
     GameGenres,
     LandingModal,
+    Credits,
   },
   data() {
     return {
       data: null,
+      creditsShow: true,
     };
   },
   computed: {
@@ -44,6 +48,12 @@ export default{
         
   },
   methods: {
+
+    togglecredits() {
+      this.creditsShow=!this.creditsShow;
+
+    },
+
 
     async getGames(genre) {
 
