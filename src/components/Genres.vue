@@ -1,21 +1,45 @@
 <template>
-  <div id="Genres" class="bg-principal p-4 genres">
+  <div id="Genres" class="bg-principal  genres">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto border-acento1 border rounded-lg shadow-md shadow-sombras1">
-      <div class="text-acento1 text-center font-bold mb-2 w-full p-4 text-lg md:text-xl lg:text-2xl">
-        GÉNEROS
+      <div class="text-acento2 text-center font-bold mb-1 w-full p-1 text-lg md:text-xl lg:text-2xl">
+        CHOOSE GENERE:
       </div>
-      <div class="flex flex-wrap justify-center gap-4 p-4 w-full">
+      <div class="flex flex-wrap justify-center gap-1 w-full">
         <button 
-          v-for="genre in ['mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
+          v-for="(genre,index) in ['allf2p','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
           @click="$emit('get-games', genre)"
-          class="border-2 p-2 rounded-md text-sm md:text-base lg:text-lg hover:bg-acento1 hover:text-white transition-all">
-          {{ genre }}
+          class=" hover:bg-acento1 transition-all mb-2">
+          <img 
+          :src="btnImages[index]" 
+          class="w-44"
+          :alt="`${genre} button image`">
         </button>
       </div>
-      <div class="bg-secundario p-2 rounded text-xs md:text-sm lg:text-base text-texto w-full text-center">
+      <div class="bg-secundario p-1 rounded text-xs md:text-sm lg:text-base text-texto w-full text-center">
         Home \ Main Page
       </div>
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  data(){
+    return{
+      btnImages:[
+        "/buttons/all_f2p.png",
+        "/buttons/mmorpg.png",
+        "/buttons/first_person.png",
+        "/buttons/third_Person.png",
+        "/buttons/shooter.png",
+        "/buttons/sports.png",
+        "/buttons/actionrpg.png",
+      ],
+    }
+  }
+
+}
+
+</script>
