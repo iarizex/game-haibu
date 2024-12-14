@@ -7,7 +7,7 @@
       class="w-30 h-28">
     </section>
     <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto max-h-[60vh]">
-      <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-small flex flex-col gap-y-2">
+      <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
         <h3 class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 min-h-14 p-2 flex items-center justify-center" 
         v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">{{info}}</h3>
         <!-- <h3>{{ gameData.developer }}</h3>
@@ -25,7 +25,7 @@
       <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex">
         <img v-for="(screenshot, index) in gameData.screenshots" 
      :key="index" 
-     :src="screenshot" 
+     :src="screenshot.image" 
      alt="Screenshot">
       </div>
 
