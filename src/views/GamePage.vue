@@ -15,7 +15,11 @@
       </aside>
       <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1">VIDEO</div>
       <div class="col-start-4 col-end-5 row-start-1 row-end-3 ">
-        <p class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 overflow-y-auto max-h-[19.6rem] mb-2 p-2">{{gameData.description}}</p>
+        <p class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 overflow-y-auto max-h-[19rem] mb-2 p-2  [&::-webkit-scrollbar]:w-2
+      [&::-webkit-scrollbar-track]:bg-sombras1
+      [&::-webkit-scrollbar-thumb]:bg-acento1
+      [&::-webkit-scrollbar-thumb]:rounded-full
+      [&::-webkit-scrollbar-track]:rounded-full">{{gameData.description}}</p>
         <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2">{{ gameData.release_date }}</div>
       </div>
       <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex">
