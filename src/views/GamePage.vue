@@ -1,19 +1,21 @@
 <template>
   <NavBar />
-  <main v-if="gameData" class="bg-principal min-h-[80vh] text-white">
+  <main v-if="gameData" class="bg-principal text-white">
     <section class="flex justify-center items-center max-w-screen-xl mx-auto p-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
       <h1 class="text-4xl px-20">{{ gameData.title }}</h1>
       <img :src="gameData.thumbnail" alt="thumbnail" 
       class="w-30 h-28">
     </section>
-    <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto max-h-[60vh]">
+    <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto h-[60vh]">
       <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
-        <h3 class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 min-h-14 p-2 flex items-center justify-center" 
+        <h3 class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 p-2 flex items-center justify-center h-full" 
         v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">{{info}}</h3>
         <!-- <h3>{{ gameData.developer }}</h3>
       <h3></h3> -->
       </aside>
-      <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1">VIDEO</div>
+      <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
+        <video class="" :src="'https://www.freetogame.com/g/' + gameData.id + '/videoplayback.webm'" controls autoplay loop muted type="video/webm"></video>
+      </div>
       <div class="col-start-4 col-end-5 row-start-1 row-end-3 ">
         <p class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 overflow-y-auto max-h-[19rem] mb-2 p-2  [&::-webkit-scrollbar]:w-2
       [&::-webkit-scrollbar-track]:bg-sombras1
@@ -22,7 +24,7 @@
       [&::-webkit-scrollbar-track]:rounded-full">{{gameData.description}}</p>
         <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2">{{ gameData.release_date }}</div>
       </div>
-      <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex">
+      <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center">
         <img v-for="(screenshot, index) in gameData.screenshots" 
      :key="index" 
      :src="screenshot.image" 
