@@ -4,10 +4,10 @@
     <LandingModal :show="showModal" @close="handleModalClose" />
 
     <div v-if="!showModal">
-        <h1>Main page</h1>
-
+      
+<!-- 
         <button @click="openModal">Abrir Modal</button>
-        <button @click="openModal">Abrir Modal Creditos</button>
+        <button @click="openModal">Abrir Modal Creditos</button> -->
 
         <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
             <NavBar />
