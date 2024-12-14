@@ -9,9 +9,11 @@
     <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto h-[60vh]">
       <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
         <h3 class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 p-2 flex items-center justify-center h-full" 
-        v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">{{info}}</h3>
-        <!-- <h3>{{ gameData.developer }}</h3>
-      <h3></h3> -->
+        v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">
+        <a v-if="index === 1" :href="info" target="_blank" rel="noopener noreferrer"
+         class="underline">{{ info }}</a>
+        <p v-else>{{info}}</p>
+      </h3>
       </aside>
       <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
         <video class="" :src="'https://www.freetogame.com/g/' + gameData.id + '/videoplayback.webm'" controls autoplay loop muted type="video/webm"></video>
