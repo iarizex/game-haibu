@@ -40,7 +40,7 @@ export default{
   data() {
     return {
       data: null,
-      creditsShow: true,
+      creditsShow: false,
     };
   },
   computed: {
