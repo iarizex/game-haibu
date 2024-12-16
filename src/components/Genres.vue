@@ -2,16 +2,15 @@
   <div id="Genres" class="bg-principal  genres">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto border-acento1 border rounded-lg shadow-md shadow-sombras1">
       <div class="text-acento2 text-center font-bold mb-1 w-full p-1 text-lg md:text-xl lg:text-2xl">
-        CHOOSE GENERE:
       </div>
       <div class="flex flex-wrap justify-center gap-1 w-full">
-        <button 
+        <button
           v-for="(genre,index) in ['allf2p','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
           @click="$emit('get-games', genre)"
-          class=" hover:bg-acento1 transition-all mb-2">
-          <img 
-          :src="btnImages[index]" 
+          class="btnHover transition-all mb-2">
+          <img
+          :src="btnImages[index]"
           class="w-44"
           :alt="`${genre} button image`">
         </button>
@@ -46,6 +45,8 @@ export default {
 
 <style>
 
-
+.btnHover:hover {
+  filter: drop-shadow(5px 5px 4px #459857);
+}
 
 </style>

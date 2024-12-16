@@ -1,22 +1,20 @@
 <template>
     <div v-if="show" class="overlay" @click="closeCredits">
     <div class="credits" @click.stop>
-        <div class="video">
         <video autoplay muted loop playsinline :src="creditsVideo" class="videoMedia"></video>
         </div>
-    </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
 
     data(){
         return {
-            creditsVideo: "/public/Credits_Anim.mp4"
+            creditsVideo: "/Credits_Anim.mp4"
         }
     },
+    props: {
 
     show: {
         type: Boolean,
@@ -48,23 +46,18 @@ export default {
 
 .credits {
     background: black;
-    color: white;
-    padding: 15px;
-    width: 50%;
-    height: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    width: 640px;
+    height: 360px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 1);
     border-radius: 8px;
+    overflow: hidden;
 }
 
-.video {
-
-}
 
 .videoMedia {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 20;
 }
 
 </style>
