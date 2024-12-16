@@ -1,7 +1,7 @@
 <template>
 
     <!-- Modal Component -->
-    <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" />
+    <LandingModal :show="!sessionStore.getLandingModalShown" @close="handleLandingModalClose" />
     <Credits :show="creditsShow" @close="togglecredits" />
 
     <div v-if="sessionStore.getLandingModalShown">
@@ -21,6 +21,8 @@ import GameCards from '../components/GameCards.vue'
 import GameGenres from '../components/Genres.vue'
 import LandingModal from "../components/Landing.vue"
 import Credits from "../components/Credits.vue";
+
+import { onMounted, onUnmounted } from 'vue';
 
 import axios from 'axios';
 
@@ -47,12 +49,10 @@ export default{
     ...mapStores(useSessionStore)  //un objeto sessionStore donde tiene todo lo del store
   },
   methods: {
-
     togglecredits() {
       this.creditsShow=!this.creditsShow;
 
     },
-
 
     async getGames(genre) {
 
@@ -81,9 +81,48 @@ export default{
 	      console.error(error);
       };
     },
+    handleLandingModalClose() {
+      this.sessionStore.switchLandingModalShown();
+      //add 2 second delay
+      setTimeout(() => {
+        this.adjustGamesLayout();
+      }, 1000);
+    },
+
+    adjustGamesLayout() {
+      const navbar = document.querySelector('nav');
+      const genres = document.querySelector('.genres');
+      const footer = document.querySelector('footer');
+      const games = document.querySelector('.gamecards');
+      if (navbar && genres && footer && games) {
+        const availableHeight = window.innerHeight - (navbar.offsetHeight + genres.offsetHeight + footer.offsetHeight + 30);
+        games.style.height = `${availableHeight}px`;
+      }
+    },
   },
   mounted() {
     this.getGames(this.sessionStore.getFilter);
+  },
+  setup() {
+    function adjustGamesLayout() {
+        const navbar = document.querySelector('nav');
+        const genres = document.querySelector('.genres');
+        const footer = document.querySelector('footer');
+        const games = document.querySelector('.gamecards');
+        if (navbar && genres && footer && games) {
+          const availableHeight = window.innerHeight - (navbar.offsetHeight + genres.offsetHeight + footer.offsetHeight + 30);
+          games.style.height = `${availableHeight}px`;
+        }
+      }
+
+      onMounted(() => {
+        adjustGamesLayout();
+        window.addEventListener('resize', adjustGamesLayout);
+      });
+
+      onUnmounted(() => {
+        window.removeEventListener('resize', adjustGamesLayout);
+      });
   },
 
 };

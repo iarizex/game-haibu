@@ -1,60 +1,58 @@
 
 <template>
     <div id="app" class="container modal-overlay" v-if="show">
-    <div class="modal-content">
+        <div class="modal-content">
+            <!-- Background negro -->
+            <div class="background flex flex-col items-center justify-between">
+                <div id="bigvideo" class="flex">
+                    <video autoplay muted loop playsinline :src="topRightVideo" class="top-right-media"></video>
+                </div>
+                <div class="hero-container flex flex-col md:flex-row text-texto gap-4 rounded-lg p-4 mx-4 [background:linear-gradient(45deg,theme(colors.secundario),theme(colors.secundario)_50%,theme(colors.secundario))_padding-box,conic-gradient(from_var(--border-angle),theme(colors.acento1/.48)_80%,theme(colors.acento2)_86%,theme(colors.acento2)_90%,theme(colors.acento2)_94%,theme(colors.acento1/.48))_border-box] border-8 border-transparent animate-border justify-center w-2/3" :style="{ animationDelay: `${(index % 5) * 0.5}s` }">
+                    <div class="hero-text">
+                    in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!
+                    </div>
+                </div>
+                <div id="buttons" class="relative md:flex md:justify-left">
+                    <!-- Static image or video -->
+                    <img 
+                        v-if="!hoveringButton" 
+                        :src="staticImage" 
+                        alt="Static Background" 
+                        class="media w-full h-auto" 
+                    />
+                    <video 
+                        v-else 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline 
+                        :src="currentVideo" 
+                        class="media w-full h-auto"
+                    ></video>
 
-    <!-- Background negro -->
-<div class="background">
+                    <!-- Buttons -->
+                    <div class="buttons absolute inset-0 flex flex-col justify-between items-center p-4">
+                        <!-- Button 1 -->
+                        <button 
+                            class="button close-btn text-transparent py-2 px-4 rounded shadow-lg w-[50%] h-[50%]" 
+                            @click="closeModal" 
+                            @mouseover="handleHover(video1)" 
+                            @mouseleave="handleLeave" 
+                        ></button>
+                        <!-- Button 2 -->
+                        <button 
+                            class="button text-black py-2 px-4 rounded shadow-lg w-[50%] h-[50%]" 
+                            @mouseover="handleHover(video2)" 
+                            @mouseleave="handleLeave" 
+                        >
+                        </button>
+                    </div>
+                </div>
 
 
-    <!-- Texto para el "hero" -->
-
-    <div class="hero-container flex flex-col md:flex-row text-texto gap-4 rounded-lg p-4 [background:linear-gradient(45deg,theme(colors.secundario),theme(colors.secundario)_50%,theme(colors.secundario))_padding-box,conic-gradient(from_var(--border-angle),theme(colors.acento1/.48)_80%,theme(colors.acento2)_86%,theme(colors.acento2)_90%,theme(colors.acento2)_94%,theme(colors.acento1/.48))_border-box] border-8 border-transparent animate-border" :style="{ animationDelay: `${(index % 5) * 0.5}s` }">
-    <div class="hero-text" :class="{ zoomed: isZoomed }">
-    in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!
+            </div>
+        </div>
     </div>
-    </div>
-
-    <!-- Video superior derecho en loop -->
-    <div class="top-right-video">
-        <video autoplay muted loop playsinline :src="topRightVideo" class="top-right-media"></video>
-    </div>
-
-    <!-- Video dinámico en la parte inferior izquierda -->
-    <div class="bottom-left-video">
-        <img v-if="!hoveringButton" :src="staticImage" alt="Static Background" class="media" />
-        <video
-        v-else
-        autoplay
-        muted
-        loop
-        playsinline
-        :src="currentVideo"
-        class="media"
-        ></video>
-    </div>
-
-    <!-- Botones -->
-    <div class="buttons">
-        <button
-        class="button close-btn" @click="closeModal"
-        @mouseover="handleHover(video1)"
-        @mouseleave="handleLeave"
-        style="bottom: 120px;"
-        >
-        Button 1
-        </button>
-        <button
-        class="button"
-        @mouseover="handleHover(video2)"
-        @mouseleave="handleLeave"
-        >
-        Button 2
-        </button>
-    </div>
-    </div>
-    </div>
-</div>
 </template>
 
 <script>
@@ -66,7 +64,7 @@ export default {
     },
 },
 
-    data() {
+data() {
 
     return {
             isZoomed: false,
@@ -106,7 +104,7 @@ export default {
             this.$emit
         }
     },
-    }
+}
 
 </script>
 
@@ -127,89 +125,4 @@ export default {
     height: 100%;
     background-color: rgb(0, 0, 0);
 }
-
-  /* Video en la parte superior derecha */
-.top-right-video {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 1000px;
-    height: 600px;
-    overflow: hidden;
-}
-
-.top-right-media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-  /* Video en la parte inferior izquierda */
-.bottom-left-video {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 400px;
-    height: 300px;
-    overflow: hidden;
-}
-
-.media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-  /* Botones */
-.buttons {
-    position: absolute;
-    bottom: 40px;
-    left: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    z-index: 10;
-}
-
-.button {
-    background-color: transparent;
-    color: transparent;
-    padding: 35px 100px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-
-.hero-container {
-    position: absolute;
-    top: 230px;
-    left: 100px;
-    height: 200px;
-    width: 40vw;
-    font-family: 'Exo 2', sans-serif;
-    overflow: hidden;
-    z-index: 1;
-    border-radius: 15px;
-}
-
-
-.hero-text {
-    font-size: 22px;
-    text-align: center;
-    justify-content: center;
-    opacity: 0;
-    z-index: 2;
-    color: white;
-    transform: scale(0.1);
-    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
-    text-shadow:
-    2px 2px 2px #000000;
-}
-
-.hero-text.zoomed {
-    opacity: 1;
-    transform: scale(1);
-}
-
 </style>
