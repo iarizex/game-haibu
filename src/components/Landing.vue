@@ -8,7 +8,8 @@
 
 
     <!-- Texto para el "hero" -->
-    <div class="hero-container">
+
+    <div class="hero-container flex flex-col md:flex-row text-texto gap-4 rounded-lg p-4 [background:linear-gradient(45deg,theme(colors.secundario),theme(colors.secundario)_50%,theme(colors.secundario))_padding-box,conic-gradient(from_var(--border-angle),theme(colors.acento1/.48)_80%,theme(colors.acento2)_86%,theme(colors.acento2)_90%,theme(colors.acento2)_94%,theme(colors.acento1/.48))_border-box] border-8 border-transparent animate-border" :style="{ animationDelay: `${(index % 5) * 0.5}s` }">
     <div class="hero-text" :class="{ zoomed: isZoomed }">
     in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!
     </div>
@@ -100,6 +101,10 @@ export default {
             this.hoveringButton = false;
             this.$emit('close');
         },
+
+        openCredits() {
+            this.$emit
+        }
     },
     }
 
@@ -186,31 +191,8 @@ export default {
     overflow: hidden;
     z-index: 1;
     border-radius: 15px;
-    background-color: rgba(20, 20, 20, 0.5);
-    box-shadow:
-    5px 5px 25px #84FF01,
-    0px 0px 15px #F8CD2A;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    animation: glow 1.5s infinite alternate;
-    backdrop-filter: blur(10px);
 }
 
-@keyframes glow {
-from {
-    box-shadow:
-    5px 5px 25px #84FF01,
-    0px 0px 15px #F8CD2A;
-}
-to {
-    box-shadow:
-    1px 1px 1px #84FF01,
-    5px 5px 25px #F8CD2A;
-}
-}
 
 .hero-text {
     font-size: 22px;
@@ -222,8 +204,7 @@ to {
     transform: scale(0.1);
     transition: transform 1.5s ease-out, opacity 1.5s ease-out;
     text-shadow:
-    1px 1px 1px white,
-    0 0 0.5em green;
+    2px 2px 2px #000000;
 }
 
 .hero-text.zoomed {
