@@ -1,5 +1,9 @@
 <template>
-  <NavBar />
+
+  <!-- Modal Component -->
+  <Credits :show="creditsShow" @close="togglecredits" />
+
+  <NavBar @open="togglecredits"/>
   <main v-if="gameData" class="bg-principal text-white">
     <section class="flex justify-center items-center max-w-screen-xl mx-auto p-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
       <h1 class="text-4xl px-20">{{ gameData.title }}</h1>
@@ -53,17 +57,20 @@
   import axios from "axios";
   import NavBar from '../components/NavBar.vue';
   import FooterPage from '../components/Footer.vue'
+  import Credits from "../components/Credits.vue";
   
   export default {
     name: "Game",
     components: {
       NavBar,
-      FooterPage
+      FooterPage,
+      Credits,
     },
     data() {
       return {
         gameData: null,
-        names: [1,2,3,4,5,6]
+        names: [1,2,3,4,5,6],
+        creditsShow: false,
       };
     },
     methods: {
@@ -89,6 +96,10 @@
 	        console.error(error);
         }
   
+      },
+      togglecredits() {
+        this.creditsShow=!this.creditsShow;
+
       },
     },
     mounted() {
