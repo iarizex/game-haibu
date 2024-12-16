@@ -1,15 +1,14 @@
 <template>
   <NavBar />
-  <main v-if="gameData" class="bg-principal text-white">
-    <section class="flex justify-center items-center max-w-screen-xl mx-auto p-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
-      <h1 class="text-4xl px-20">{{ gameData.title }}</h1>
-      <img :src="gameData.thumbnail" alt="thumbnail" 
-      class="w-30 h-28">
-    </section>
-    <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto h-[61.9vh]">
-      <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
+  <main v-if="gameData" class="bg-principal text-white px-2">
+    <section class="grid gap-3 grid-cols-4 max-w-screen-xl mx-auto">
+      <h1 class="col-start-1 lg:col-start-2 col-end-5 row-start-1 row-end-1 flex justify-center items-center p-2  mx-2 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
+        {{ gameData.title }}
+      </h1>
+      
+      <aside class=" row-start-3 col-start-1 col-end-3 lg:col-end-2 lg:row-start-1 lg:row-end-4 text-sm flex flex-col gap-3">
   <div
-    class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 p-2 flex items-start justify-center flex-col h-full"
+    class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex items-start justify-center flex-col p-2 h-full"
     v-for="(item, index) in infoArray"
     :key="index"
   >
@@ -44,11 +43,12 @@
   </div>
 </aside>
 
-      <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
-        <video class="" :src="'https://www.freetogame.com/g/' + gameData.id + '/videoplayback.webm'" controls autoplay loop muted type="video/webm"></video>
+      <div class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-4 row-start-2 lg:row-end-3 p-1 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
+        <video class="rounded-lg" :src="'https://www.freetogame.com/g/' + gameData.id + '/videoplayback.webm'" controls autoplay loop muted type="video/webm"></video>
       </div>
-      <div class="col-start-4 col-end-5 row-start-1 row-end-3 ">
-        <p class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 overflow-y-auto max-h-[19rem] mb-2 p-2  [&::-webkit-scrollbar]:w-2
+
+      <div class="col-start-3 lg:col-start-4 col-end-5 row-start-3 lg:row-start-2 lg:row-end-3">
+        <p class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 h-[40rem] lg:max-h-[27.2rem] overflow-y-auto p-2 mb-2 [&::-webkit-scrollbar]:w-2
       [&::-webkit-scrollbar-track]:bg-sombras1
       [&::-webkit-scrollbar-thumb]:bg-acento1
       [&::-webkit-scrollbar-thumb]:rounded-full
@@ -56,8 +56,8 @@
       {{gameData.description}}</p>
         <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2"><strong class="uppercase text-acento1">release date: </strong> {{ gameData.release_date }}</div>
       </div>
-      <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center">
-        <img v-for="(screenshot, index) in gameData.screenshots" 
+      <div class="col-start-1 lg:col-start-2 col-end-5 row-start-4 lg:row-start-3 lg:row-end-4 p-2 overflow-hidden border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center ">
+        <img class="h-40" v-for="(screenshot, index) in gameData.screenshots" 
      :key="index" 
      :src="screenshot.image" 
      alt="Screenshot">
@@ -65,8 +65,8 @@
 
     </section>
   </main>
-
   <FooterPage />
+
   </template>
   
   <script>
