@@ -8,6 +8,7 @@
           v-for="(genre,index) in ['allf2p','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
           @click="$emit('get-games', genre)"
+          v-bind:class="{'btnActive': genre==sessionStore.getFilter,  'bg-transparent': genre!=sessionStore.getFilter}"
           class="btnHover transition-all mb-2">
           <img
           :src="btnImages[index]"
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import {useSessionStore} from "../stores/session";
+import {mapStores} from "pinia";
 
 export default {
   data(){
@@ -37,7 +40,11 @@ export default {
         "/buttons/actionrpg.png",
       ],
     }
-  }
+  },
+
+  computed: {
+    ...mapStores(useSessionStore)  //un objeto sessionStore donde tiene todo lo del store
+  },
 
 }
 
@@ -46,6 +53,10 @@ export default {
 <style>
 
 .btnHover:hover {
+  filter: drop-shadow(5px 5px 4px #459857);
+}
+
+.btnActive {
   filter: drop-shadow(5px 5px 4px #459857);
 }
 
