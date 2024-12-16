@@ -40,12 +40,11 @@ export default{
   data() {
     return {
       data: null,
-      creditsShow: true,
+      creditsShow: false,
     };
   },
   computed: {
     ...mapStores(useSessionStore)  //un objeto sessionStore donde tiene todo lo del store
-        
   },
   methods: {
 
