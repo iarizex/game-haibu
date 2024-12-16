@@ -1,16 +1,12 @@
 <template>
 
     <!-- Modal Component -->
-    <LandingModal :show="showModal" @close="handleModalClose" />
+    <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" />
+    <Credits :show="creditsShow" @close="togglecredits" />
 
-    <div v-if="!showModal">
-      
-<!-- 
-        <button @click="openModal">Abrir Modal</button>
-        <button @click="openModal">Abrir Modal Creditos</button> -->
-
+    <div v-if="sessionStore.getLandingModalShown">
         <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
-            <NavBar />
+            <NavBar @open="togglecredits" />
             <GameGenres @get-games="getGames" />
             <GameCards :data="data" />
             <FooterPage />
@@ -23,9 +19,13 @@ import NavBar from '../components/NavBar.vue'
 import FooterPage from '../components/Footer.vue'
 import GameCards from '../components/GameCards.vue'
 import GameGenres from '../components/Genres.vue'
-import LandingModal from "../components/Landing.vue";
+import LandingModal from "../components/Landing.vue"
+import Credits from "../components/Credits.vue";
 
 import axios from 'axios';
+
+import {useSessionStore} from "../stores/session";
+import {mapStores} from "pinia";
 
 export default{
   name: "MainPage",
@@ -35,23 +35,29 @@ export default{
     GameCards,
     GameGenres,
     LandingModal,
+    Credits,
   },
   data() {
     return {
       data: null,
-      showModal: true,
+      creditsShow: false,
     };
+  },
+  computed: {
+    ...mapStores(useSessionStore)  //un objeto sessionStore donde tiene todo lo del store
   },
   methods: {
 
-    openModal() {
-      this.showModal = true;
-    },
-    handleModalClose() {
-      this.showModal = false;
+    togglecredits() {
+      this.creditsShow=!this.creditsShow;
+
     },
 
+
     async getGames(genre) {
+
+      this.sessionStore.setFilter(genre);
+
       const options = {
         method: 'GET',
         url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
@@ -61,30 +67,23 @@ export default{
         }
       };
 
-      if (genre) {
+      if (this.sessionStore.getFilter) {
         options.url = 'https://free-to-play-games-database.p.rapidapi.com/api/filter';
         const params = {tag: genre};
         options.params = params;
-      }
+      };
 
       try {
 	    const response = await axios.request(options);
 	    console.log(response.data);
         this.data = response.data;
-        console.log('getGames: ', genre);
       } catch (error) {
 	      console.error(error);
-      }
+      };
     },
   },
   mounted() {
-    this.getGames();
-
-    // Verificar si ya se mostró el modal en la sesión actual
-    if (!sessionStorage.getItem("landingModalShown")) {
-        this.showModal = true;
-        sessionStorage.setItem("landingModalShown", "true");
-    }
+    this.getGames(this.sessionStore.getFilter);
   },
 
 };

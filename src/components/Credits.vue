@@ -1,14 +1,22 @@
 <template>
-    <div v-if="isVisibleCredits" class="overlay" @click="closeCredits">
+    <div v-if="show" class="overlay" @click="closeCredits">
     <div class="credits" @click.stop>
-    </div>
+        <video autoplay muted loop playsinline :src="creditsVideo" class="videoMedia"></video>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+
+    data(){
+        return {
+            creditsVideo: "/Credits_Anim.mp4"
+        }
+    },
     props: {
-    isVisibleCredits: {
+
+    show: {
         type: Boolean,
         required: true,
     },
@@ -33,16 +41,23 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 20;
+
 }
 
 .credits {
     background: black;
-    color: white;
-    padding: 15px;
-    width: 50%;
-    height: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    width: 640px;
+    height: 360px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 1);
     border-radius: 8px;
+    overflow: hidden;
 }
+
+
+.videoMedia {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 </style>
