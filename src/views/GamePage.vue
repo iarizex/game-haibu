@@ -8,16 +8,42 @@
     </section>
     <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto h-[61.9vh]">
       <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
-        <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 p-2 flex items-start justify-center flex-col h-full" 
-        v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">
-        <a v-if="info === gameData.game_url" :href="info" target="_blank" rel="noopener noreferrer"
-         class="underline">PLAY NOW</a>
-         <div v-else-if="info === gameData.minimum_system_requirements" v-for="(require, index) in gameData.minimum_system_requirements" :key="index">
-          <p><strong class="uppercase text-acento1">{{ index }}: </strong>{{ require }}</p>
-</div>
-        <p v-else >{{index + info}}</p>
-      </div>
-      </aside>
+  <div
+    class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 p-2 flex items-start justify-center flex-col h-full"
+    v-for="(item, index) in infoArray"
+    :key="index"
+  >
+    <!-- Handle URL -->
+    <a
+      v-if="item.name === 'Link'"
+      :href="item.value"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline"
+    >
+    <strong class="uppercase text-acento1">link: </strong> PLAY NOW
+    </a>
+
+    <!-- Handle Minimum System Requirements -->
+    <div
+      v-else-if="item.name === 'Requirement'"
+      v-for="(require, reqIndex) in item.value"
+      :key="reqIndex"
+    >
+      <p>
+        <strong class="uppercase text-acento1">{{ reqIndex }}:</strong>
+        {{ require }}
+      </p>
+    </div>
+
+    <!-- Handle Other Fields -->
+    <p v-else>
+      <strong class="uppercase text-acento1">{{ item.name }}:</strong>
+      {{ item.value }}
+    </p>
+  </div>
+</aside>
+
       <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
         <video class="" :src="'https://www.freetogame.com/g/' + gameData.id + '/videoplayback.webm'" controls autoplay loop muted type="video/webm"></video>
       </div>
@@ -26,8 +52,9 @@
       [&::-webkit-scrollbar-track]:bg-sombras1
       [&::-webkit-scrollbar-thumb]:bg-acento1
       [&::-webkit-scrollbar-thumb]:rounded-full
-      [&::-webkit-scrollbar-track]:rounded-full">{{gameData.description}}</p>
-        <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2">{{ gameData.release_date }}</div>
+      [&::-webkit-scrollbar-track]:rounded-full"><strong class="uppercase text-acento1">game description: </strong>
+      {{gameData.description}}</p>
+        <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2"><strong class="uppercase text-acento1">release date: </strong> {{ gameData.release_date }}</div>
       </div>
       <div class="col-start-2 col-end-5 row-start-3 row-end-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center">
         <img v-for="(screenshot, index) in gameData.screenshots" 
@@ -40,13 +67,6 @@
   </main>
 
   <FooterPage />
-    <!-- <h2>Game {{ $route.params.id }}</h2> -->
-    <!-- <div v-if="gameData">
-      <img :src="gameData.thumbnail" />
-      <h3>{{ gameData.title }}</h3>
-      <h3>{{ gameData.developer }}</h3>
-      <h3>{{ gameData.release_date }}</h3>
-    </div> -->
   </template>
   
   <script>
@@ -63,9 +83,22 @@
     data() {
       return {
         gameData: null,
-        names: [1,2,3,4,5,6]
       };
     },
+    computed: {
+    infoArray() {
+      return [
+        { name: "Mini desc", value: this.gameData?.short_description || "No description available" },
+        { name: "Link", value: this.gameData?.game_url },
+        { name: "Genre", value: this.gameData?.genre },
+        { name: "Platform", value: this.gameData?.platform },
+        { name: "Publisher", value: this.gameData?.publisher },
+        { name: "Developer", value: this.gameData?.developer },
+        { name: "Requirement", value: this.gameData?.minimum_system_requirements || {} },
+      ];
+    },
+  },
+    
     methods: {
       async getGameData(){
         const options = {
