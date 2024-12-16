@@ -8,14 +8,14 @@
     </section>
     <section class="grid gap-2 grid-cols-4 grid-rows-3 mt-4 max-w-screen-xl mx-auto h-[61.9vh]">
       <aside class="col-start-1 col-end-2 row-start-1 row-end-4 text-sm flex flex-col gap-y-2">
-        <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 p-2 flex items-center justify-center h-full" 
+        <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1p-2 p-2 flex items-start justify-center flex-col h-full" 
         v-for="(info, index) in [gameData.short_description, gameData.game_url, gameData.genre, gameData.platform, gameData.publisher, gameData.developer, gameData.minimum_system_requirements]" :key="index">
         <a v-if="info === gameData.game_url" :href="info" target="_blank" rel="noopener noreferrer"
          class="underline">PLAY NOW</a>
-         <!-- <pre v-else-if="info === gameData.minimum_system_requirements">{{"OS: " + info.os }}
-{{"ss: " + info.os}}
-        </pre> -->
-        <p v-else >{{info}}</p>
+         <div v-else-if="info === gameData.minimum_system_requirements" v-for="(require, index) in gameData.minimum_system_requirements" :key="index">
+          <p><strong class="uppercase text-acento1">{{ index }}: </strong>{{ require }}</p>
+</div>
+        <p v-else >{{index + info}}</p>
       </div>
       </aside>
       <div class="col-start-2 col-end-4 row-start-1 row-end-3 border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center items-center">
