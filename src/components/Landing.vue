@@ -45,7 +45,7 @@
         Button 1
         </button>
         <button
-        class="button"
+        class="button" @click="$emit('open')"
         @mouseover="handleHover(video2)"
         @mouseleave="handleLeave"
         >

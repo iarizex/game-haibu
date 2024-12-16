@@ -1,8 +1,8 @@
 <template>
 
     <!-- Modal Component -->
-    <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" />
-    <Credits :show="creditsShow" @close="togglecredits" />
+    <LandingModal :show="!sessionStore.getLandingModalShown" @close="sessionStore.switchLandingModalShown" @open="togglecredits" />
+    <Credits :show="creditsShow" @close="togglecredits" @open="togglecredits" />
 
     <div v-if="sessionStore.getLandingModalShown">
         <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
