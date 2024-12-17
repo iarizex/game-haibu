@@ -83,10 +83,9 @@ export default{
     },
     handleLandingModalClose() {
       this.sessionStore.switchLandingModalShown();
-      //add 2 second delay
       setTimeout(() => {
         this.adjustGamesLayout();
-      }, 1000);
+      }, 3000);
     },
 
     adjustGamesLayout() {
@@ -102,6 +101,15 @@ export default{
   },
   mounted() {
     this.getGames(this.sessionStore.getFilter);
+    setTimeout(() => {
+      this.adjustGamesLayout();
+    }, 1000);
+  },
+  updated() {
+    // Wait for the DOM to be updated before adjusting the layout
+    this.$nextTick(() => {
+      this.adjustGamesLayout();
+    });
   },
   setup() {
     function adjustGamesLayout() {
