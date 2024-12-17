@@ -3,7 +3,7 @@
         <div class="modal-content">
             <!-- Background negro -->
             <div class=" flex flex-col justify-between ">
-                <div class="flex flex-col min-h-screen bg-black background justify-between max-w-screen-2xl">
+                <div class="flex flex-col min-h-screen bg-black background justify-between max-w-screen-2xl bigcenter">
                     <!-- Row 1: Text and Video -->
                     <div class="flex flex-col md:flex-row w-full h-full">
                         <!-- Video Div (appears first on mobile and desktop) -->
@@ -94,7 +94,7 @@
     /* Contenedor principal */
   .container {
       overflow: hidden;
-  }
+    }
   
     /* Fondo negro */
   .background {
@@ -104,9 +104,5 @@
       left: 0;
       width: 100%;
       height: 100%;
-
-    @media (min-width: 1536px) {
-        position-area: center;
-    }
   }
   </style>
