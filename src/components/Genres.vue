@@ -1,9 +1,9 @@
 <template>
-  <div id="Genres" class="bg-principal  genres">
+  <div id="Genres" class="bg-principal genres px-4 py-2 md:py-4">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto border-acento1 border rounded-lg shadow-md shadow-sombras1">
       <div class="text-acento2 text-center font-bold mb-1 w-full p-1 text-lg md:text-xl lg:text-2xl">
       </div>
-      <div class="flex flex-wrap justify-center gap-1 w-full">
+      <div class="flex flex-wrap justify-around gap-1 w-full">
         <button
           v-for="(genre,index) in ['','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
