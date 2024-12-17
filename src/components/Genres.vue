@@ -5,7 +5,7 @@
       </div>
       <div class="flex flex-wrap justify-center gap-1 w-full">
         <button
-          v-for="(genre,index) in ['allf2p','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
+          v-for="(genre,index) in ['','mmorpg', 'first-person', 'third-Person', 'shooter', 'sports', 'action-rpg']"
           :key="genre"
           @click="$emit('get-games', genre)"
           v-bind:class="{'btnActive': genre==sessionStore.getFilter,  'bg-transparent': genre!=sessionStore.getFilter}"
