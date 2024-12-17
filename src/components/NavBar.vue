@@ -42,7 +42,7 @@
                     <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 md:text-acento2" aria-current="page"><img src="/public/buttons/home.png" class="w-44 btnHover" alt="Home Button" /></a>
                 </li>
                 <li>
-                    <button class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700" @click="$emit('open')"><img src="/public/buttons/credits.png" class="w-44 btnHover" alt="Credits Button" /></button>
+                    <button class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700" @click="$emit('open')"><img src="/public/buttons/Credits.png" class="w-44 btnHover" alt="Credits Button" /></button>
                 </li>
                 </ul>
             </div>
