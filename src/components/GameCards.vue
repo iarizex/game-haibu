@@ -1,5 +1,5 @@
 <template>
-    <main class="bg-principal p-4">
+    <main class="bg-principal px-4 py-2 md:py-4">
       <div id="GameCards" class="gamecards grid grid-cols-1 md:grid-cols-2 gap-4 p-4 max-w-screen-xl mx-auto border-acento1 border rounded-lg shadow-md shadow-sombras1  overflow-y-auto 
       [&::-webkit-scrollbar]:w-2
       [&::-webkit-scrollbar-track]:bg-sombras1

@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-principal p-4">
+    <nav class="bg-principal px-4 pt-4 pb-2 md:pb-4">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/public/GameHibu_Logo_Navbar.png" class="w-44 btnHover" alt="Game Hibu Logo" />
