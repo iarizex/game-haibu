@@ -5,7 +5,7 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
    // ... other hosting settings
      "github": {
        "repo": "iarizex/game-haibu",
