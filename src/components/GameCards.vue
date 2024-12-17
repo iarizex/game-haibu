@@ -50,9 +50,3 @@
     },
   };
 </script>
-
-<style scoped>
-#app{
-  background-color: blue !important;
-}
-</style>
