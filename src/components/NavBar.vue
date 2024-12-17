@@ -2,8 +2,8 @@
     <nav class="bg-principal px-4 pt-4 pb-2 md:pb-4">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 border-acento1 border rounded-lg shadow-lg shadow-sombras1">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="/buttons/game_hibu_alpha.png" class="w-16" alt="Game Hibu Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white hover:text-acento1">Game Hibu</span>
+                <img src="/public/GameHibu_Logo_Navbar.png" class="w-44 btnHover" alt="Game Hibu Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white hover:text-acento1"></span>
             </a>
             <div class="flex md:order-1">
                 <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
@@ -39,13 +39,21 @@
                 </div>
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 md:text-acento2" aria-current="page">Home</a>
+                    <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 md:text-acento2" aria-current="page"><img src="/public/buttons/home.png" class="w-44 btnHover" alt="Home Button" /></a>
                 </li>
                 <li>
-                    <button class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700" @click="$emit('open')">Credits</button>
+                    <button class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700" @click="$emit('open')"><img src="/public/buttons/credits.png" class="w-44 btnHover" alt="Credits Button" /></button>
                 </li>
                 </ul>
             </div>
         </div>
     </nav>
 </template>
+
+<style>
+
+.btnHover:hover {
+filter: drop-shadow(5px 5px 4px #459857);
+}
+
+</style>

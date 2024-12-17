@@ -26,7 +26,7 @@
                             <video v-else autoplay muted loop playsinline :src="currentVideo" class="media w-full h-auto"></video>
                             <div class="buttons absolute inset-0 flex flex-col justify-between items-center p-4">
                                 <button class="button close-btn text-transparent py-2 px-4 rounded shadow-lg w-[80%] h-[50%]" @click="closeModal" @mouseover="handleHover(video1)"  @mouseleave="handleLeave">Start</button>
-                                <button class="button text-transparent py-2 px-4 rounded shadow-lg w-[80%] h-[50%]" @mouseover="handleHover(video2)" @mouseleave="handleLeave">Credits</button>
+                                <button class="button text-transparent py-2 px-4 rounded shadow-lg w-[80%] h-[50%]" @mouseover="handleHover(video2)" @mouseleave="handleLeave" @click="openCredits">Credits</button>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
           },
   
           openCredits() {
-              this.$emit
+              this.$emit('open');
           }
       },
   }
