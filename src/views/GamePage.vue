@@ -56,7 +56,13 @@
       {{gameData.description}}</p>
         <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2"><strong class="uppercase text-acento1">release date: </strong> {{ gameData.release_date }}</div>
       </div>
-      <div class="col-start-1 lg:col-start-2 col-end-5 row-start-4 lg:row-start-3 lg:row-end-4 p-2 overflow-hidden border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center ">
+      
+      <div class="col-start-1 lg:col-start-2 col-end-5 row-start-4 lg:row-start-3 lg:row-end-4 p-2 overflow-hidden border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex justify-center
+      overflow-x-auto [&::-webkit-scrollbar]:h-2
+      [&::-webkit-scrollbar-track]:bg-sombras1
+      [&::-webkit-scrollbar-thumb]:bg-acento1
+      [&::-webkit-scrollbar-thumb]:rounded-full
+      [&::-webkit-scrollbar-track]:rounded-full">
         <img class="h-40" v-for="(screenshot, index) in gameData.screenshots" 
      :key="index" 
      :src="screenshot.image" 
