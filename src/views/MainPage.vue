@@ -5,7 +5,7 @@
     <Credits :show="creditsShow" @close="togglecredits" @open="togglecredits" />
 
     <div v-if="sessionStore.getLandingModalShown">
-        <div class="bg-fondo text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
+        <div class="text-texto h-screen grid overflow-hidden grid-rows-[auto,auto,1fr,auto]">
             <NavBar @open="togglecredits" />
             <GameGenres @get-games="getGames" />
             <GameCards :data="data" />

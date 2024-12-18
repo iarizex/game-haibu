@@ -14,3 +14,13 @@
 .animate-border-2 { animation-delay: 1s; }
 .animate-border-3 { animation-delay: 1.5s; }
 .animate-border-4 { animation-delay: 2s; }
+
+.bigcenter{
+  @media (min-width: 1536px) {
+    position-area: center;
+  }
+}
+
+.textosombra{
+  text-shadow: 2px 2px 2px black;
+}

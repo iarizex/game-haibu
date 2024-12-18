@@ -3,7 +3,7 @@
         <div class="modal-content">
             <!-- Background negro -->
             <div class=" flex flex-col justify-between ">
-                <div class="flex flex-col min-h-screen bg-black background justify-between max-w-screen-2xl">
+                <div class="flex flex-col min-h-screen bg-black background justify-between max-w-screen-2xl bigcenter">
                     <!-- Row 1: Text and Video -->
                     <div class="flex flex-col md:flex-row w-full h-full">
                         <!-- Video Div (appears first on mobile and desktop) -->
@@ -15,7 +15,7 @@
                         <!-- Text Div (appears second on mobile and first in desktop) -->
                          <div id="text" class="p-4 flex items-center justify-center order-2 md:order-1 md:w-1/3 w-full h-full">
                             <div class="bg-black p-4 w-2/3 text-texto gap-4 rounded-lg [background:linear-gradient(45deg,theme(colors.secundario),theme(colors.secundario)_50%,theme(colors.secundario))_padding-box,conic-gradient(from_var(--border-angle),theme(colors.acento1/.48)_80%,theme(colors.acento2)_86%,theme(colors.acento2)_90%,theme(colors.acento2)_94%,theme(colors.acento1/.48))_border-box] border-8 border-transparent animate-border" :style="{ animationDelay: `${(index % 5) * 0.5}s` }">
-                                <p class="text-center">in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!</p>
+                                <p class="text-center textosombra">in Game Hibu you will be able to find all the Free to Play games on PC and Browser ordered by genre and much more. Start your Free to Play Gaming experience with Game Hibu!</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
     /* Contenedor principal */
   .container {
       overflow: hidden;
-  }
+    }
   
     /* Fondo negro */
   .background {
@@ -104,9 +104,5 @@
       left: 0;
       width: 100%;
       height: 100%;
-
-    @media (min-width: 1536px) {
-        position-area: center;
-    }
   }
   </style>

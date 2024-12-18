@@ -12,7 +12,7 @@
       
       <aside class=" row-start-3 col-start-1 col-end-3 lg:col-end-2 lg:row-start-1 lg:row-end-4 text-sm flex flex-col gap-3">
   <div
-    class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex items-start justify-center flex-col p-2 h-full"
+    class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 flex items-start justify-center flex-col p-2 h-full textosombra"
     v-for="(item, index) in infoArray"
     :key="index"
   >
@@ -57,7 +57,7 @@
       [&::-webkit-scrollbar-thumb]:bg-acento1
       [&::-webkit-scrollbar-thumb]:rounded-full
       [&::-webkit-scrollbar-track]:rounded-full"><strong class="uppercase text-acento1">game description: </strong>
-      {{gameData.description}}</p>
+      <span class="textosombra">{{gameData.description}}</span></p>
         <div class="border-acento1 border rounded-lg shadow-lg shadow-sombras1 text-center p-2"><strong class="uppercase text-acento1">release date: </strong> {{ gameData.release_date }}</div>
       </div>
       
