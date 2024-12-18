@@ -32,7 +32,7 @@
                 class="block py-2 px-3 rounded md:p-0 md:hover:text-acento1 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
                 @click="$emit('open')"
               >
-                <img src="/public/buttons/credits.png" class="w-44 btnHover" alt="Credits Button" />
+                <img src="/public/buttons/Credits.png" class="w-44 btnHover" alt="Credits Button" />
               </button>
             </li>
           </ul>
