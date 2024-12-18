@@ -5,7 +5,7 @@
       [&::-webkit-scrollbar-track]:bg-sombras1
       [&::-webkit-scrollbar-thumb]:bg-acento1
       [&::-webkit-scrollbar-thumb]:rounded-full
-      [&::-webkit-scrollbar-track]:rounded-full min-h-96">
+      [&::-webkit-scrollbar-track]:rounded-full min-h-96 textosombra">
       <Games v-for="(game, index) in data" :key="game.id" :game="game" :index="index" />
       </div>
     </main>

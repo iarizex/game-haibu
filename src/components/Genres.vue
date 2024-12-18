@@ -17,7 +17,7 @@
         </button>
       </div>
       <div class="bg-secundario p-1 rounded text-xs md:text-sm lg:text-base text-texto w-full text-center">
-        Home \ Main Page
+        <a href="/">Home</a> \ Main Page
       </div>
     </div>
   </div>
